@@ -1,11 +1,4 @@
-const ReadyCard = () => {
-  // Static mock data
-  const order = {
-    order_title: "Beef Steak",
-    table_no: 12,
-    waiterId: "W-007",
-    cooked_At: "12:45 PM",
-  };
+const ReadyCard = ({order}) => {
 
   return (
     <div className="border rounded-xl p-5 shadow bg-green-50 hover:shadow-md transition">
@@ -22,11 +15,6 @@ const ReadyCard = () => {
       {/* Waiter ID */}
       <p className="text-gray-800">
         <span className="font-semibold">Waiter ID:</span> {order.waiterId}
-      </p>
-
-      {/* Cooking Time */}
-      <p className="text-gray-600 mt-2">
-        <span className="font-semibold">Cooking Time:</span> {order.cooked_At}
       </p>
     </div>
   );

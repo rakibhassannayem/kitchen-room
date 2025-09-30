@@ -1,5 +1,4 @@
 import { CookingPot, ScrollText, Soup } from "lucide-react";
-import React from "react";
 
 const States = ({ ordersTotal, cookingTotal, readyTotal }) => {
   return (

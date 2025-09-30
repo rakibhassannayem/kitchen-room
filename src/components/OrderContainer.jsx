@@ -3,6 +3,7 @@ import States from "./States";
 import OrderCard from "./cards/OrderCard";
 import CookingCard from "./cards/CookingCard";
 import { toast } from "react-toastify";
+import ReadyCard from "./cards/ReadyCard";
 
 const OrderContainer = ({ ordersPromise }) => {
   const orders = use(ordersPromise);
@@ -23,7 +24,7 @@ const OrderContainer = ({ ordersPromise }) => {
     setReadyItems(newReadyItems);
 
     const remainingItems = cookingItems.filter((item) => item.id !== order.id);
-    setCookingItems(remainingItems)
+    setCookingItems(remainingItems);
   };
 
   return (
@@ -60,7 +61,11 @@ const OrderContainer = ({ ordersPromise }) => {
           </div>
 
           <h2 className="font-bold text-4xl">Order Ready</h2>
-          <div className="shadow p-10">{}</div>
+          <div className="shadow p-10 space-y-5">
+            {readyItems.map((order) => (
+              <ReadyCard order={order} key={order.id}></ReadyCard>
+            ))}
+          </div>
         </div>
       </section>
     </div>
