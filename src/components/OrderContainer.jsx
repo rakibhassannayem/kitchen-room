@@ -6,7 +6,8 @@ import { toast } from "react-toastify";
 import ReadyCard from "./cards/ReadyCard";
 
 const OrderContainer = ({ ordersPromise }) => {
-  const orders = use(ordersPromise);
+  const data = use(ordersPromise);
+  const [orders, setOrders] = useState(data);
   const [cookingItems, setCookingItems] = useState([]);
   const [readyItems, setReadyItems] = useState([]);
   const handleOrder = (order) => {
@@ -20,11 +21,17 @@ const OrderContainer = ({ ordersPromise }) => {
     }
   };
   const handleCooking = (order) => {
+    // add to ready
     const newReadyItems = [...readyItems, order];
     setReadyItems(newReadyItems);
 
+    // remove from cooking
     const remainingItems = cookingItems.filter((item) => item.id !== order.id);
     setCookingItems(remainingItems);
+
+    // remove from orders
+    const remainingOrders = orders.filter((item) => item.id !== order.id);
+    setOrders(remainingOrders);
   };
 
   return (
