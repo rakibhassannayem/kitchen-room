@@ -10,18 +10,21 @@ const OrderContainer = ({ ordersPromise }) => {
   const [orders, setOrders] = useState(data);
   const [cookingItems, setCookingItems] = useState([]);
   const [readyItems, setReadyItems] = useState([]);
+
   const handleOrder = (order) => {
     const isExist = cookingItems.find((item) => item.id === order.id);
-
     if (isExist) {
-      toast("Allready Cooking");
+      toast.error("Allready Cooking !");
     } else {
+      toast.success("Order successful");
       const newCookingItems = [...cookingItems, order];
       setCookingItems(newCookingItems);
     }
   };
+
   const handleCooking = (order) => {
     // add to ready
+    order.cooked_At = new Date().toLocaleTimeString()
     const newReadyItems = [...readyItems, order];
     setReadyItems(newReadyItems);
 

@@ -16,6 +16,11 @@ const ReadyCard = ({order}) => {
       <p className="text-gray-800">
         <span className="font-semibold">Waiter ID:</span> {order.waiterId}
       </p>
+
+      {/* Cooking Time */}
+      <p className="text-gray-600 mt-2">
+        <span className="font-semibold">Cooking Time:</span> {order.cooked_At}
+      </p>
     </div>
   );
 };
