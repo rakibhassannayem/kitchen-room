@@ -8,7 +8,9 @@ function App() {
         <Navbar></Navbar>
       </header>
       <section>
-        <Headings></Headings>
+        <Headings>
+          Kitchen Room
+        </Headings>
       </section>
     </>
   );
